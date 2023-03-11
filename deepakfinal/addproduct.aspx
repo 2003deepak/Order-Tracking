@@ -13,15 +13,20 @@
         <br />
         <br />
         <asp:DropDownList ID="dd1" runat="server">
-            <asp:ListItem Value="#">Iphone</asp:ListItem>
-            <asp:ListItem Value="#">Bat</asp:ListItem>
-            <asp:ListItem Value="#">Laptop</asp:ListItem>
-            <asp:ListItem Value="#">Tv</asp:ListItem>
+            <asp:ListItem Value="Iphone">Iphone</asp:ListItem>
+            <asp:ListItem Value="Bat">Bat</asp:ListItem>
+            <asp:ListItem Value="Laptop">Laptop</asp:ListItem>
+            <asp:ListItem Value="Tv">Tv</asp:ListItem>
         </asp:DropDownList>
         <br /><br />
        
+        <asp:Label ID="deepak" runat="server"></asp:Label>
+        <asp:Label ID="rinku" runat="server"></asp:Label>
+        <br /><br />
         <asp:Button ID="addproduct_button" runat="server" Text="Add Product" OnClick="addproduct_button_Click" />
         <br />
+
+        
         
     </form>
 </body>

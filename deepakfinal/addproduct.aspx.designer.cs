@@ -42,6 +42,24 @@ namespace deepakfinal
         protected global::System.Web.UI.WebControls.DropDownList dd1;
 
         /// <summary>
+        /// deepak control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label deepak;
+
+        /// <summary>
+        /// rinku control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label rinku;
+
+        /// <summary>
         /// addproduct_button control.
         /// </summary>
         /// <remarks>
