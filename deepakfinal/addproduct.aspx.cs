@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-
 namespace deepakfinal
 {
-
     public partial class addproduct : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection("data source = DESKTOP-QUR84FS\\SQLEXPRESS ; initial catalog = order_tracking ;integrated security = true ;");
@@ -19,43 +17,59 @@ namespace deepakfinal
             
         }
 
+        
         protected void addproduct_button_Click(object sender, EventArgs e)
         {
-            String choice = dd1.SelectedValue;
-            
-            deepak.Text= choice;
-            rinku.Text = generateOrderId();
-            SqlCommand cmd = new SqlCommand("insert into order values('" + username.Text + "','" + password.Text + "','" + email.Text + "')", con);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Registered ')", true);
-            string message = "Successfully Registered ";
-            string script = $"<script>alert('{message}');</script>";
-            Response.Write(script);
+            String product_name = dd1.SelectedValue;
+            String username = (String)HttpContext.Current.Session["username"];
+            String orderid = generateOrderID();
 
-            Response.Redirect("login.aspx");
+            try
+            {
+                SqlCommand cmd = new SqlCommand("insert into orders(username , product_name , order_id) values('" + username + "','" + product_name + "','" + orderid + "')", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Registered ')", true);
+                string message = "Successfully Added Product  ";
+                string script = $"<script>alert('{message}');</script>";
+                Response.Write(script);
+                Response.Redirect("dashboard.aspx");
+            }catch(Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Registered ')", true);
+                string message = "Not Added";
+                string script = $"<script>alert('{message}');</script>";
+                Response.Write(script);
+                Response.Redirect("dashboard.aspx");
+            }
+            
+
+            
 
 
         }
+       
 
-        protected  static String generateOrderId()
+        protected String generateOrderID()
         {
-
-            // generating order id of 5 digits 
-
             Random rn = new Random();
-            String s = "O";
+            String sb = "O";
             int i = 1;
-            while (i <= 5)
+            while (i < 5)
             {
 
-                int a = rn.Next(9);
-                s = s + a;
+                
+                String a = rn.Next(10).ToString();
+                sb = sb + a;    
                 i++;
             }
 
-            return s;
+            return sb; 
+
+            
+
         }
+
     }
 }

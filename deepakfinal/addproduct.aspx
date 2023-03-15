@@ -7,6 +7,8 @@
     <title></title>
 </head>
 <body>
+    
+
     <form id="form1" runat="server">
         <h1>Add New Product </h1>
         <asp:Label Text ="Choose The Product " runat="server" ID="lb1"></asp:Label>
@@ -23,7 +25,7 @@
         <asp:Label ID="deepak" runat="server"></asp:Label>
         <asp:Label ID="rinku" runat="server"></asp:Label>
         <br /><br />
-        <asp:Button ID="addproduct_button" runat="server" Text="Add Product" OnClick="addproduct_button_Click" />
+        <asp:Button runat="server" ID="addproduct_button" OnClick="addproduct_button_Click" Text ="Add Product "/>
         <br />
 
         
@@ -31,3 +33,5 @@
     </form>
 </body>
 </html>
+
+
