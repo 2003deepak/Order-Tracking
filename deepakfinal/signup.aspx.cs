@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -14,7 +16,7 @@ namespace deepakfinal
     public partial class WebForm1 : System.Web.UI.Page
     {
 
-        SqlConnection con = new SqlConnection("data source = DESKTOP-QUR84FS\\SQLEXPRESS ; initial catalog = order_tracking ;integrated security = true ;");
+        String conString = "server=127.0.0.1 ; user = root ; database = order_tracking ; password = ";
         
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,18 +26,28 @@ namespace deepakfinal
 
         protected void signup_button_Click(object sender, EventArgs e)
         {
-           
-                SqlCommand cmd = new SqlCommand("insert into signup values('" + username.Text + "','" + password.Text + "','" + email.Text + "')", con);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Registered ')", true);
-                string message = "Successfully Registered ";
-                string script = $"<script>alert('{message}');</script>";
-                Response.Write(script);
+            using (MySqlConnection con = new MySqlConnection(conString))
+            {
+                try
+                {
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO signup (username, password, email) VALUES (@username, @password, @email)");
+                    cmd.Connection = con;
+                    cmd.Parameters.AddWithValue("@username", username.Text);
+                    cmd.Parameters.AddWithValue("@password", password.Text);
+                    cmd.Parameters.AddWithValue("@email", email.Text);
+                    cmd.ExecuteNonQuery();
+                    Response.Redirect("login.aspx");
 
-                Response.Redirect("login.aspx");
-               
+                    
+                }
+                catch (Exception ex)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('User record not inserted ');", true);
+
+                    Response.Redirect("login.aspx");
+                }
+            }
 
         }
     }

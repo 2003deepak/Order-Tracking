@@ -21,7 +21,8 @@
     <div class ="Signup">
    <form id="form1" runat="server">
         <div>
-            <asp:Label ID="lb1" runat="server"></asp:Label>
+           
+
             <img src ="loginavatar.png" height="120px" />
             <h1>Sign Up </h1>
                 <asp:TextBox ID="username" runat ="server" placeholder ="Enter Your Username " CssClass ="text" required></asp:TextBox>
@@ -39,6 +40,7 @@
            
            
         </div>
+       
     </form>
     </div>
 </body>
