@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,7 +14,7 @@ namespace deepakfinal
 {
     public partial class addproduct : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection("data source = DESKTOP-QUR84FS\\SQLEXPRESS ; initial catalog = order_tracking ;integrated security = true ;");
+        String conString = "server=127.0.0.1 ; user = root ; database = order_tracking ; password = ";
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -20,35 +23,40 @@ namespace deepakfinal
         
         protected void addproduct_button_Click(object sender, EventArgs e)
         {
-            String product_name = dd1.SelectedValue;
-            String username = (String)HttpContext.Current.Session["username"];
-            String orderid = generateOrderID();
 
-            try
+
+
+            using (MySqlConnection con = new MySqlConnection(conString))
             {
-                SqlCommand cmd = new SqlCommand("insert into orders(username , product_name , order_id) values('" + username + "','" + product_name + "','" + orderid + "')", con);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Registered ')", true);
-                string message = "Successfully Added Product  ";
-                string script = $"<script>alert('{message}');</script>";
-                Response.Write(script);
-                Response.Redirect("dashboard.aspx");
-            }catch(Exception ex)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Registered ')", true);
-                string message = "Not Added";
-                string script = $"<script>alert('{message}');</script>";
-                Response.Write(script);
-                Response.Redirect("dashboard.aspx");
+                try
+                {
+                    con.Open();
+                    String userid = (String)HttpContext.Current.Session["username"];
+                    String order = generateOrderID();
+                    String product = dd1.SelectedValue;
+
+
+                    MySqlCommand cmd = new MySqlCommand("insert into orders(username , order_id , product_name ) values('" + userid + "','" + order + "','" + product + "')", con);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Succesfully Added Product ');", true);
+                    Response.Redirect("dashboard.aspx");
+
+                }
+                catch (Exception ex)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert(' Not Added Product ');", true);
+
+
+                }
+
             }
+               
             
-
-            
-
 
         }
+       
        
 
         protected String generateOrderID()

@@ -8,6 +8,8 @@
 </head>
 <body>
     
+    
+    
 
     <form id="form1" runat="server">
         <h1>Add New Product </h1>

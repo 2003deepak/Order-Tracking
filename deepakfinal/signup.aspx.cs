@@ -37,6 +37,7 @@ namespace deepakfinal
                     cmd.Parameters.AddWithValue("@password", password.Text);
                     cmd.Parameters.AddWithValue("@email", email.Text);
                     cmd.ExecuteNonQuery();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Succesfully Registered ');", true);
                     Response.Redirect("login.aspx");
 
                     

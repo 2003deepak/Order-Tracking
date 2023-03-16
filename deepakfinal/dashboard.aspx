@@ -13,8 +13,8 @@
         <!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
-			<i class='bx bxs-smile'></i>
-			<span class="text">Order Tracking System </span>
+			
+			<span class="text"> &nbsp Order Tracking System </span>
 		</a>
 		<ul class="side-menu top">
 			<li>
