@@ -25,7 +25,9 @@ namespace deepakfinal
             MySqlConnection con = new MySqlConnection(conString);
             try
             {
+                
                 String a = username.Text;
+                Session["username"] = a ;
                 con.Open();
                 String query = "select count(*) from signup where username = '" + username.Text + "' and password = '" + password.Text + "' ";
                 MySqlCommand cmd = new MySqlCommand(query, con);

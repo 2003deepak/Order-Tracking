@@ -18,6 +18,7 @@ namespace deepakfinal
         protected void Page_Load(object sender, EventArgs e)
         {
             
+
         }
 
         
@@ -31,13 +32,13 @@ namespace deepakfinal
                 try
                 {
                     con.Open();
-                    String userid = (String)HttpContext.Current.Session["username"];
-                    String order = generateOrderID();
-                    String product = dd1.SelectedValue;
+                    string userid = (string)HttpContext.Current.Session["username"];
+                    string order = generateOrderID();
+                    string product = dd1.SelectedValue;
 
 
                     MySqlCommand cmd = new MySqlCommand("insert into orders(username , order_id , product_name ) values('" + userid + "','" + order + "','" + product + "')", con);
-                    con.Open();
+                    
                     cmd.ExecuteNonQuery();
                     con.Close();
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Succesfully Added Product ');", true);
