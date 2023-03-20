@@ -56,7 +56,7 @@ namespace deepakfinal
                 }
             }catch(Exception ex)
             {
-                Response.Write(ex.ToString());
+                
             }
            
                     

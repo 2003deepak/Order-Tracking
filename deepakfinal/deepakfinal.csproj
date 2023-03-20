@@ -104,10 +104,8 @@
   <ItemGroup>
     <Content Include="addproduct.aspx" />
     <Content Include="bg-10-full.jpg" />
-    <Content Include="bhiwandi.aspx" />
     <Content Include="checkin.aspx" />
     <Content Include="checkout.aspx" />
-    <Content Include="colaba.aspx" />
     <Content Include="dashboard.aspx" />
     <Content Include="dashboard.css" />
     <Content Include="dashboard.js" />
@@ -115,7 +113,6 @@
     <Content Include="loginavatar.png" />
     <Content Include="logout.aspx" />
     <Content Include="signup.css" />
-    <Content Include="thane.aspx" />
     <Content Include="warehouse.aspx" />
     <Content Include="warehouse.css" />
     <Content Include="Web.config" />
@@ -130,13 +127,6 @@
     <Compile Include="addproduct.aspx.designer.cs">
       <DependentUpon>addproduct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="bhiwandi.aspx.cs">
-      <DependentUpon>bhiwandi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="bhiwandi.aspx.designer.cs">
-      <DependentUpon>bhiwandi.aspx</DependentUpon>
-    </Compile>
     <Compile Include="checkin.aspx.cs">
       <DependentUpon>checkin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,13 +140,6 @@
     </Compile>
     <Compile Include="checkout.aspx.designer.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="colaba.aspx.cs">
-      <DependentUpon>colaba.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="colaba.aspx.designer.cs">
-      <DependentUpon>colaba.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
@@ -186,13 +169,6 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="thane.aspx.cs">
-      <DependentUpon>thane.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="thane.aspx.designer.cs">
-      <DependentUpon>thane.aspx</DependentUpon>
     </Compile>
     <Compile Include="warehouse.aspx.cs">
       <DependentUpon>warehouse.aspx</DependentUpon>

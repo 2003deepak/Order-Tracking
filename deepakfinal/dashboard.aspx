@@ -31,8 +31,6 @@
 	</section>
 	<!-- SIDEBAR -->
 
-
-
 	<!-- CONTENT -->
 	<section id="content">
 		
@@ -57,24 +55,25 @@
 						<h3>Recent Orders</h3>
 						
 					</div>
-					<table>
-						<thead>
-							<tr>
-								<th>Order ID </th>
-								<th>Product Name </th>
-								<th>Order Date</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							
-								
+					<asp:Table runat="server" ID="myTable">
+
+						<asp:TableHeaderRow>
+							<asp:TableHeaderCell>Order Id</asp:TableHeaderCell>
+							<asp:TableHeaderCell>Product Name</asp:TableHeaderCell>
+							<asp:TableHeaderCell>Order Date</asp:TableHeaderCell>
+							<asp:TableHeaderCell>Order Status</asp:TableHeaderCell>
+
+						</asp:TableHeaderRow>
+						
+
+					</asp:Table>
+
+						
 								<!-- <td><span class="status completed">Completed</span></td> --> 
 							
 							
 						
-						</tbody>
-					</table>
+						
 
 				</div> 
 			
@@ -84,6 +83,10 @@
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
+
+
+
+	 
 	
 
 	<script src="dashboard.js"></script>

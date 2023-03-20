@@ -13,13 +13,10 @@
         <br />
         <br />
         <asp:DropDownList ID="dd1" runat="server">
-            <asp:ListItem Value="#">Iphone</asp:ListItem>
-            <asp:ListItem Value="#">Iphone</asp:ListItem>
-            <asp:ListItem Value="#">Iphone</asp:ListItem>
-            <asp:ListItem Value="#">Iphone</asp:ListItem>
+            
         </asp:DropDownList>
         <br /><br />
-        <asp:Button runat="server" ID="check_in_button" Text ="Add Product " OnClick="check_in_button_Click" />
+        <asp:Button runat="server" ID="check_in_button" Text ="Check In Product " OnClick="check_in_button_Click" />
     </form>
 </body>
 </html>
